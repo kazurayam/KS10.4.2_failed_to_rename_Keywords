@@ -11,7 +11,7 @@ Here I would report a bug found in Katalon Studio v10.4.2.
 
 I created a brand new project of webui.
 
-I created a Groovy file `Keywords/com/kazurayam/ks/BrowserMobProxyManager.groovy`. The content is as follows (but not relevant to the bug at all):
+I created a Groovy file `Keywords/com/kazurayam/ks/BrowserMobProxyManager.groovy`. The content is as follows:
 
 ```
 package com.kazurayam.ks
@@ -43,7 +43,7 @@ import com.kazurayam.ks.BrowserMobProxyManager
 BrowserMobProxyManager.greeting()
 ```
 
-When I ran the `TC1`, it worked fine. The following outcome in the console:
+When I ran the `TC1`, it worked fine. I saw the following outcome in the console:
 
 ```
 2026-04-13 22:14:12.890 INFO  c.k.katalon.core.main.TestCaseExecutor   - --------------------
@@ -53,7 +53,7 @@ When I ran the `TC1`, it worked fine. The following outcome in the console:
 2026-04-13 22:14:13.792 INFO  c.k.katalon.core.main.TestCaseExecutor   - END Test Cases/TC1
 ```
 
-I tried to rename the `BrowserMobProxyManger.groovy` to `WebDriverPlusHARFactory.groovy`.
+Then, I tried to rename the `BrowserMobProxyManger.groovy` to `WebDriverPlusHARFactory.groovy`.
 
 ![try rename Manager to Factory](https://kazurayam.github.io/KS10.4.2_failed_to_rename_Keywords/images/try_rename_Manager_to_Factory.png)
 
@@ -65,11 +65,13 @@ The message said:
 
 >Type com.kazurayam.ks.BrowserMobProxyManager contains a main method - some applications (such as scripts) may not work after refactoring.
 
-I could understand the message. Later, I will remove the `main` method, which is unnecessary. I decided to ignore the warning and clicked the continue button. Then, I noticed 2 problems.
+I could understand the message. I would accept the warning. Later I will remove the `main` method. This warning dialog is not a problem at all.
+
+For the time being, I decided to ignore the warning and clicked the continue button. Then, I got a series of problems.
 
 **Problem 1: Katalon Studio GUI no longer synced with the file system**
 
-In the Katalon Studio GUI, in the `Keywords` folder, the `BrowserMobProxyManager.groovy` was renamed to `WebDriverPlusHARFactory.groovy`. But on the file system (using Emacs editor), I found that `BrowserMobProxyManager.groovy` stayed there and `WebDriverPlusHARFactory.groovy` wasn't present.
+In the Katalon Studio GUI, in the `Keywords` folder, the `BrowserMobProxyManager.groovy` was renamed to `WebDriverPlusHARFactory.groovy`. But on the file system, using Emacs editor, I found that the original `BrowserMobProxyManager.groovy` stayed there and new `WebDriverPlusHARFactory.groovy` wasn't present.
 
 ![GUI and file out of sync](https://kazurayam.github.io/KS10.4.2_failed_to_rename_Keywords/images/GUI_file_out_of_sync.png)
 
