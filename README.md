@@ -107,4 +107,9 @@ The message said
 
 >Type named 'BrowserMobProxyManager' already exists in package 'com.kazurayam.ks'
 
-and actually I could not finish renaming the class back to the original.
+and actually I could not finish renaming the class back to the original. This was a serious error for me.
+
+## Conclusion
+
+Katalon Studio v10.4.2 has some flaws in the renaming of custom keyword classes.  I hope Catalon will fix it someday.
+
