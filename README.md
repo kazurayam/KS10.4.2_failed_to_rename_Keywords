@@ -65,9 +65,7 @@ The message said:
 
 >Type com.kazurayam.ks.BrowserMobProxyManager contains a main method - some applications (such as scripts) may not work after refactoring.
 
-I could understand the message. I would accept the warning. Later I will remove the `main` method. This warning dialog is not a problem at all.
-
-For the time being, I decided to ignore the warning and clicked the continue button. Then, I got a series of problems.
+This warning dialog is not a problem at all. I could understand the message. I could accept the warning. I decided to remove the `main` method later. But, for the time being, I wanted to ignore the warning. I clicked the continue button. Then, I got a series of problems.
 
 **Problem 1: Katalon Studio GUI no longer synced with the file system**
 
@@ -89,7 +87,11 @@ to
 import com.kazurayam.ks.WebDriverPlusHARFactory
 ```
 
-but, in fact, the Test Case script was left unchanged. I checked their doc ["Introduction to custom keywords in Katalon Studio"](https://docs.katalon.com/katalon-studio/keywords/custom-keywords/introduction-to-custom-keywords-in-katalon-studio). I was surprised to find that the doc does NOT mention of the auto-refactoring of Test Case scripts when a Keyword is renamed.
+but, in fact, the Test Case script was left unchanged.
+
+![TestCase unchanged](https://kazurayam.github.io/KS10.4.2_failed_to_rename_Keywords/images/TestCase_was_left_unchanged.png)
+
+I checked their doc ["Introduction to custom keywords in Katalon Studio"](https://docs.katalon.com/katalon-studio/keywords/custom-keywords/introduction-to-custom-keywords-in-katalon-studio). To my surprise, the doc does NOT mention the auto-refactoring of Test Case scripts when a Keyword is renamed. Missing feature it was!
 
 **Problem 3: failed to renamed the Keyword back to the original**
 
